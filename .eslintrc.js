@@ -39,7 +39,7 @@ module.exports = {
       },
     ],
     'no-use-before-define': 'off',
-    '@typescript-eslint/no-use-before-define': ['error'],
+    '@typescript-eslint/no-use-before-define': ['error', { variables: false }],
     'import/no-extraneous-dependencies': ['error', { devDependencies: false }],
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'no-param-reassign': [
@@ -80,4 +80,4 @@ module.exports = {
     navigator: true,
     fetch: true,
   },
-}
+};
