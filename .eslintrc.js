@@ -38,8 +38,11 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'import/no-unresolved': 0,
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error', { variables: false }],
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': ['error'],
     'import/no-extraneous-dependencies': ['error', { devDependencies: false }],
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'no-param-reassign': [
@@ -70,6 +73,13 @@ module.exports = {
     'jest/valid-expect': 'error',
     'file-progress/activate': 1,
   },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
   env: {
     'jest/globals': true,
   },
@@ -80,4 +90,4 @@ module.exports = {
     navigator: true,
     fetch: true,
   },
-};
+}
