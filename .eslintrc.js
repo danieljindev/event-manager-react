@@ -49,6 +49,12 @@ module.exports = {
         ignorePropertyModificationsFor: ['state'],
       },
     ],
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
     'no-console': 0, // Warning to reduce console logs used throughout app
     'react/prop-types': 0, // Not using prop-types because we have TypeScript
     'newline-before-return': 1,
