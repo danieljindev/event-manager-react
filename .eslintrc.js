@@ -62,7 +62,7 @@ module.exports = {
     'jest/no-identical-title': 'error',
     'jest/prefer-to-have-length': 'warn',
     'jest/valid-expect': 'error',
-    "file-progress/activate": 1
+    'file-progress/activate': 1,
   },
   env: {
     'jest/globals': true,
@@ -74,4 +74,4 @@ module.exports = {
     navigator: true,
     fetch: true,
   },
-};
+}
