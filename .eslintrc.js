@@ -18,7 +18,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'jest', 'file-progress'],
+  plugins: ['react', '@typescript-eslint', 'jest', 'file-progress', '@emotion'],
   rules: {
     // Separate import groups with newline by section
     'import/order': [
@@ -45,6 +45,7 @@ module.exports = {
     '@typescript-eslint/no-shadow': ['error'],
     'import/no-extraneous-dependencies': ['error', { devDependencies: false }],
     'react/jsx-props-no-spreading': 'off',
+    'no-underscore-dangle': 0,
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'no-param-reassign': [
       'error',

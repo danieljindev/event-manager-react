@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { experimentalStyled, ThemeProvider } from '@material-ui/core'
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
@@ -11,15 +11,54 @@ import AppSidebar from 'src/components/layout/AppSidebar'
 import { GlobalStateProvider } from 'src/contexts/GlobalStateContext'
 import theme from 'src/theme'
 import { getDayJsLocale } from 'src/utils/helpers'
+import { useDispatch, useSelector } from 'react-redux'
+import { getEvents } from 'src/selectors'
+import { fetchEvents } from 'src/slices/event'
+import { css } from '@emotion/react'
+import { HashLoader } from 'react-spinners'
 
-import About from './About'
 import Home from './Home'
+import About from './About'
 
 dayjs.extend(localizedFormat)
 dayjs.locale(getDayJsLocale(navigator.language))
 
 export default function App() {
+  // ===========================================================================
+  // State
+  // ===========================================================================
+
   const [isMobileNavOpen, setMobileNavOpen] = useState(false)
+
+  // ===========================================================================
+  // Selectors
+  // ===========================================================================
+
+  const { loading } = useSelector(getEvents)
+
+  // ===========================================================================
+  // Dispatch
+  // ===========================================================================
+
+  const dispatch = useDispatch()
+
+  const _fetchEvents = () => dispatch(fetchEvents())
+
+  // ===========================================================================
+  // Hooks
+  // ===========================================================================
+
+  useEffect(() => {
+    _fetchEvents()
+  }, [])
+
+  if (loading) {
+    return (
+      <CenterContainer>
+        <HashLoader color="#36D7B7" loading={loading} css={override} size={100} />
+      </CenterContainer>
+    )
+  }
 
   return (
     <HelmetProvider>
@@ -87,3 +126,16 @@ const DashboardLayoutContent = experimentalStyled('div')({
   height: '100%',
   overflow: 'auto',
 })
+
+const CenterContainer = experimentalStyled('div')({
+  position: 'absolute',
+  left: '50%',
+  top: '50%',
+  transform: 'translate(-50%, -50%)',
+})
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`
