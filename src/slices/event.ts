@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { EventState } from 'src/types'
+import { EventItem, EventState } from 'src/types'
 import { EventsSortKey } from 'src/utils/enums'
 import { getPageCount } from 'src/utils/helpers'
 
@@ -18,23 +18,23 @@ const authSlice = createSlice({
   name: 'event',
   initialState,
   reducers: {
-    fetch: (state) => {
+    fetchEvents: (state) => {
       state.loading = true
     },
 
-    fetchSuccess: (state, { payload }: PayloadAction<any>) => {
+    fetchEventsSuccess: (state, { payload }: PayloadAction<EventItem[]>) => {
       state.events = payload
       state.pageCount = getPageCount(state.events, state.eventsPerPage)
       state.loading = false
     },
 
-    fetchError: (state, { payload }: PayloadAction<string>) => {
+    fetchEventsError: (state, { payload }: PayloadAction<string>) => {
       state.error = payload
       state.loading = false
     },
   },
 })
 
-export const { fetch, fetchSuccess, fetchError } = authSlice.actions
+export const { fetchEvents, fetchEventsSuccess, fetchEventsError } = authSlice.actions
 
 export default authSlice.reducer
