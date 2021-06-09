@@ -1,5 +1,5 @@
 import React from 'react'
-import { EventStatus } from 'src/utils/enums'
+import { EventStatus, EventsSortKey } from 'src/utils/enums'
 
 // ==============================================================================
 // Items
@@ -32,4 +32,23 @@ export interface EventItem {
   tournament: TournamentItem
   prizePools: PrizePool
   matchSeries: string
+}
+
+// ==============================================================================
+// State
+// ==============================================================================
+
+export interface EventState {
+  loading: boolean
+  events: EventItem[]
+  entries: string[]
+  currentPage: number
+  pageCount: number
+  eventsPerPage: number
+  orderBy: EventsSortKey
+  error?: string
+}
+
+export interface RootState {
+  eventState: EventState
 }
