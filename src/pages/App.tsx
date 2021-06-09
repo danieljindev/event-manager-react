@@ -1,5 +1,6 @@
 import Container from '@material-ui/core/Container'
 import React from 'react'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import { GlobalStateProvider } from 'src/contexts/GlobalStateContext'
 
@@ -9,7 +10,12 @@ import NotFound from './NotFound'
 
 export default function App() {
   return (
-    <>
+    <HelmetProvider>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Event Manager</title>
+      </Helmet>
+
       <GlobalStateProvider>
         <Container>
           <Switch>
@@ -20,6 +26,6 @@ export default function App() {
           </Switch>
         </Container>
       </GlobalStateProvider>
-    </>
+    </HelmetProvider>
   )
 }
