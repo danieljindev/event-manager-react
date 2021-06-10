@@ -10,7 +10,7 @@ import 'jest-extended'
 
 import TournamentCard from 'src/components/event/TournamentCard'
 import { EventItem, TournamentItem } from 'src/types'
-import events from '../../__mocks__/events'
+import events from '../../../__mocks__/events'
 
 describe('<TournamentCard />', () => {
   it('renders the TournamentCard component', () => {

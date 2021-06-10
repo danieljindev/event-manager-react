@@ -15,11 +15,16 @@ import dayjs from 'dayjs'
 import { EventItem } from 'src/types'
 import { useDispatch } from 'react-redux'
 import { toggleEntry } from 'src/slices/event'
+import { TestID } from 'src/resources/TestID'
 
 import PrizePoolCard from './PrizePoolCard'
 import TournamentCard from './TournamentCard'
 
-const EventCard: React.FC<{ eventItem: EventItem }> = ({ eventItem, ...rest }) => {
+const EventCard: React.FC<{ eventItem: EventItem; index: number }> = ({
+  eventItem,
+  index,
+  ...rest
+}) => {
   // ===========================================================================
   // Dispatch
   // ===========================================================================
@@ -104,13 +109,21 @@ const EventCard: React.FC<{ eventItem: EventItem }> = ({ eventItem, ...rest }) =
             }}
           >
             {eventItem.isEntry ? (
-              <BlueButton variant="contained" onClick={onClickHandler}>
-                Add to Entries
-              </BlueButton>
-            ) : (
-              <PurpleButton variant="contained" onClick={onClickHandler}>
+              <PurpleButton
+                variant="contained"
+                onClick={onClickHandler}
+                data-testid={TestID.TOGGLE_ENTRY_BUTTON + index}
+              >
                 Remove from Entries
               </PurpleButton>
+            ) : (
+              <BlueButton
+                variant="contained"
+                onClick={onClickHandler}
+                data-testid={TestID.TOGGLE_ENTRY_BUTTON + index}
+              >
+                Add to Entries
+              </BlueButton>
             )}
           </Grid>
         </Grid>

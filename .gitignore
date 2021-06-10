@@ -2,15 +2,20 @@
 
 # dependencies
 /node_modules
+
 /.pnp
 .pnp.js
 
 # testing
 /coverage
+/cypress
 
 # production
 /build
+/dist
 
+# husky
+.husky
 # misc
 .DS_Store
 .env.local

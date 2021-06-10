@@ -49,9 +49,9 @@ const Home = () => {
         <Container maxWidth={false}>
           <Box sx={{ pt: 3 }}>
             <Grid container spacing={3}>
-              {filteredEvents.map((event) => (
+              {filteredEvents.map((event, index) => (
                 <Grid item key={event.eventID} lg={4} md={6} xs={12}>
-                  <EventCard eventItem={event as EventItem} />
+                  <EventCard eventItem={event as EventItem} index={index} />
                 </Grid>
               ))}
             </Grid>

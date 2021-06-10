@@ -10,7 +10,7 @@ import 'jest-extended'
 
 import PrizePoolCard from 'src/components/event/PrizePoolCard'
 import { EventItem, PrizePool } from 'src/types'
-import events from '../../__mocks__/events'
+import events from '../../../__mocks__/events'
 
 describe('<PrizePoolCard />', () => {
   it('renders the PrizePoolCard component', () => {
