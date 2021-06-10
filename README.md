@@ -4,7 +4,7 @@
 
 ## Live Website
 
-- [Click Here](https://flamboyant-meninsky-52d028.netlify.app)
+- [Click Here](https://ecstatic-lovelace-2beaf0.netlify.app/)
 
 ## Solution
 
