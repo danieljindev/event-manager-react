@@ -2,6 +2,14 @@
 
 ![Screenshot](./assets/Screenshot.png)
 
+## Live Website
+
+- [Click Here](https://flamboyant-meninsky-52d028.netlify.app)
+
+## Solution
+
+- [Click Here](./SOLUTION.md)
+
 ## Features
 
 - **Add to Entries** - Add event to the entries by clicking event button
@@ -14,6 +22,8 @@
 ## About
 
 This is a simple but enterprise-ready event management app created from [Create React App](https://create-react-app.dev/) by [Daniel](https://github.com/danieljindev/).
+
+> [Click Here](./assets/Screenshot.png) to see more in details.
 
 ## Application Installation
 
