@@ -5,6 +5,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import NotificationsIcon from '@material-ui/icons/NotificationsOutlined'
 import { useSelector } from 'react-redux'
 import { getEventStates } from 'src/selectors'
+import { TestID } from 'src/resources/TestID'
 
 import Logo from '../Logo'
 
@@ -27,7 +28,11 @@ const AppNavbar: React.FC<AppNavbarProps> = ({ onMobileNavOpen, ...rest }) => {
         </RouterLink>
         <Box sx={{ flexGrow: 1 }} />
         <IconButton color="inherit">
-          <Badge badgeContent={entries.length} color="secondary">
+          <Badge
+            badgeContent={entries.length}
+            color="secondary"
+            data-testid={TestID.ENTRY_NOTIFICATION}
+          >
             <NotificationsIcon />
           </Badge>
         </IconButton>

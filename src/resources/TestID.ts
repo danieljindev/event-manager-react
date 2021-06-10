@@ -3,4 +3,5 @@
 export enum TestID {
   LOADING = 'loading',
   TOGGLE_ENTRY_BUTTON = 'toggle-entry-button-',
+  ENTRY_NOTIFICATION = 'entry-notification',
 }

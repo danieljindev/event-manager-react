@@ -6,14 +6,6 @@ import { TestID } from 'src/resources/TestID'
 
 import { entryPoint } from './testHelperEnums'
 
-const assertCurrentFolderOrCategory = (folderOrCategoryName: string) => {
-  cy.get('.active').should('have.text', folderOrCategoryName)
-}
-
-const assertNoteContainsText = (testID: string, text: string) => {
-  cy.get(wrapWithTestIDTag(testID)).click().should('contain.text', text)
-}
-
 // takes a built string instead of a TestID .. prefer clickTestID() when possible
 const clickDynamicTestID = (dynamicTestID: string) => {
   cy.get(wrapWithTestIDTag(dynamicTestID)).click()
@@ -46,7 +38,7 @@ const getTestID = (testIDEnum: TestID) => {
   return cy.get(wrapWithTestIDTag(testIDEnum))
 }
 
-const testIDShouldContain = (testIDEnum: TestID, textEnum: LabelText) => {
+const testIDShouldContain = (testIDEnum: TestID | string, textEnum: LabelText) => {
   cy.get(wrapWithTestIDTag(testIDEnum)).should('contain', textEnum)
 }
 
@@ -62,6 +54,18 @@ const wrapWithTestIDTag = (testIDEnum: TestID | string) => {
   return '[data-testid="' + testIDEnum + '"]'
 }
 
+/**
+ * New Test goes here.
+ */
+
+const assertTotalEntriesCount = (expectedLength: number) => {
+  getTestID(TestID.ENTRY_NOTIFICATION).children().should('contain.text', expectedLength)
+}
+
+const assertToogleButtonTextUpdated = (index: number, textEnum: LabelText) => {
+  testIDShouldContain(TestID.TOGGLE_ENTRY_BUTTON + index, textEnum)
+}
+
 export {
   clickDynamicTestID,
   clickTestID,
@@ -72,7 +76,7 @@ export {
   testIDShouldExist,
   testIDShouldNotExist,
   wrapWithTestIDTag,
-  assertCurrentFolderOrCategory,
   selectOptionTestID,
-  assertNoteContainsText,
+  assertTotalEntriesCount,
+  assertToogleButtonTextUpdated,
 }
