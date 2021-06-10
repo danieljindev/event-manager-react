@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getEventStates } from 'src/selectors'
 import { fetchEvents } from 'src/slices/event'
 import AppContent from 'src/components/layout/AppContent'
+import { TestID } from 'src/resources/TestID'
 import Loading from 'src/components/Loading'
 
 import Home from './Home'
@@ -53,7 +54,7 @@ export default function App() {
   }, [])
 
   if (loading) {
-    return <Loading loading />
+    return <Loading loading dataTestID={TestID.LOADING} />
   }
 
   return (

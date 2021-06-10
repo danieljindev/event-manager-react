@@ -1,7 +1,6 @@
 import { EventItem, RootState } from 'src/types'
 import { getNotesSorter } from 'src/utils/eventsSortStrategies'
 
-/* eslint-disable import/prefer-default-export */
 export const getEventStates = (state: RootState) => state.eventState
 
 export const getPageEvents = (state: RootState): EventItem[] => {

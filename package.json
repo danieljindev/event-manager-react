@@ -8,7 +8,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest --config config/jest.config.js",
     "eject": "react-scripts eject",
     "eslint": "eslint src/**/*.{ts,tsx}",
     "eslint:fix": "eslint --fix src/**/*.{ts,tsx}",
@@ -38,10 +38,10 @@
   },
   "devDependencies": {
     "@emotion/eslint-plugin": "^11.2.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
+    "@testing-library/jest-dom": "^5.13.0",
+    "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
+    "@types/jest": "^24.9.1",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
@@ -62,8 +62,13 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^6.0.0",
+    "jest": "^27.0.4",
+    "jest-environment-jsdom": "^27.0.3",
+    "jest-extended": "^0.11.5",
+    "jest-raw-loader": "^1.0.1",
     "lint-staged": "^11.0.0",
-    "prettier": "2.3.1"
+    "prettier": "2.3.1",
+    "ts-jest": "^27.0.3"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
