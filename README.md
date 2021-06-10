@@ -1,6 +1,6 @@
 <h2 align="center">React.js SPA for Managing Events</h2>
 
-![Screenshot](./Screenshot.png)
+![Screenshot](./assets/Screenshot.png)
 
 ## Features
 
