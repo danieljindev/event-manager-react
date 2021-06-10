@@ -32,9 +32,13 @@ const authSlice = createSlice({
       state.error = payload
       state.loading = false
     },
+
+    changePage: (state, { payload }: PayloadAction<number>) => {
+      state.currentPage = payload
+    },
   },
 })
 
-export const { fetchEvents, fetchEventsSuccess, fetchEventsError } = authSlice.actions
+export const { fetchEvents, fetchEventsSuccess, fetchEventsError, changePage } = authSlice.actions
 
 export default authSlice.reducer

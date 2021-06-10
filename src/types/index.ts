@@ -32,6 +32,7 @@ export interface EventItem {
   tournament: TournamentItem
   prizePools: PrizePool
   matchSeries: string
+  isEntry?: boolean
 }
 
 // ==============================================================================

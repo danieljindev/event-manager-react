@@ -12,7 +12,7 @@ import { GlobalStateProvider } from 'src/contexts/GlobalStateContext'
 import theme from 'src/theme'
 import { getDayJsLocale } from 'src/utils/helpers'
 import { useDispatch, useSelector } from 'react-redux'
-import { getEvents } from 'src/selectors'
+import { getEventStates } from 'src/selectors'
 import { fetchEvents } from 'src/slices/event'
 import AppContent from 'src/components/layout/AppContent'
 import Loading from 'src/components/Loading'
@@ -34,7 +34,7 @@ export default function App() {
   // Selectors
   // ===========================================================================
 
-  const { loading } = useSelector(getEvents)
+  const { loading } = useSelector(getEventStates)
 
   // ===========================================================================
   // Dispatch

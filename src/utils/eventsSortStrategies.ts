@@ -8,10 +8,12 @@ export interface EventsSortStrategy {
 
 const eventID: EventsSortStrategy = {
   sort: (a: EventItem, b: EventItem): number => {
-    const dateA = new Date(a.eventID)
-    const dateB = new Date(b.eventID)
+    const dateA = a.eventID.toUpperCase()
+    const dateB = b.eventID.toUpperCase()
 
-    return dateA < dateB ? 1 : -1
+    if (dateA === dateB) return 0
+
+    return dateA > dateB ? 1 : -1
   },
 }
 
