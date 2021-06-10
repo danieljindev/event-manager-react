@@ -4,7 +4,7 @@ import { PrizePool } from 'src/types'
 import { blue } from '@material-ui/core/colors'
 
 const PrizePoolCard: React.FC<PrizePool> = ({ winningsPrizePoolAmount, bonusPrizePoolAmount }) => (
-  <Card sx={{ height: '100%' }}>
+  <Card sx={{ height: '100%', backgroundColor: '#f3f6f9' }}>
     <CardContent>
       <Box
         sx={{

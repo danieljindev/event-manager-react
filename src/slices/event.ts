@@ -36,9 +36,16 @@ const authSlice = createSlice({
     changePage: (state, { payload }: PayloadAction<number>) => {
       state.currentPage = payload
     },
+
+    toggleEntry: (state, { payload }: PayloadAction<string>) => {
+      state.events = state.events.map((event) =>
+        event.eventID === payload ? { ...event, isEntry: !event.isEntry } : event
+      )
+    },
   },
 })
 
-export const { fetchEvents, fetchEventsSuccess, fetchEventsError, changePage } = authSlice.actions
+export const { fetchEvents, fetchEventsSuccess, fetchEventsError, changePage, toggleEntry } =
+  authSlice.actions
 
 export default authSlice.reducer

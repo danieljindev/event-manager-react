@@ -4,7 +4,7 @@ import { red, blue } from '@material-ui/core/colors'
 import { TournamentItem } from 'src/types'
 
 const TournamentCard: React.FC<TournamentItem> = ({ name, stage }) => (
-  <Card sx={{ height: '100%' }}>
+  <Card sx={{ height: '100%', backgroundColor: '#f3f6f9' }}>
     <CardContent>
       <Box
         sx={{
