@@ -51,7 +51,7 @@ const Home = () => {
             <Grid container spacing={3}>
               {filteredEvents.map((event) => (
                 <Grid item key={event.eventID} lg={4} md={6} xs={12}>
-                  <EventCard event={event as EventItem} />
+                  <EventCard eventItem={event as EventItem} />
                 </Grid>
               ))}
             </Grid>

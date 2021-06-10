@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@material-ui/core'
 import Button, { ButtonProps } from '@material-ui/core/Button'
-import { purple, blue, indigo } from '@material-ui/core/colors'
+import { purple, indigo } from '@material-ui/core/colors'
 import AccessTimeIcon from '@material-ui/icons/AccessTime'
 import dayjs from 'dayjs'
 import { EventItem } from 'src/types'
@@ -19,14 +19,14 @@ import { toggleEntry } from 'src/slices/event'
 import PrizePoolCard from './PrizePoolCard'
 import TournamentCard from './TournamentCard'
 
-const EventCard: React.FC<{ event: EventItem }> = ({ event, ...rest }) => {
+const EventCard: React.FC<{ eventItem: EventItem }> = ({ eventItem, ...rest }) => {
   // ===========================================================================
   // Dispatch
   // ===========================================================================
 
   const dispatch = useDispatch()
 
-  const _toggleEntry = () => dispatch(toggleEntry(event.eventID))
+  const _toggleEntry = () => dispatch(toggleEntry(eventItem.eventID))
 
   // ===========================================================================
   // Handlers
@@ -43,9 +43,8 @@ const EventCard: React.FC<{ event: EventItem }> = ({ event, ...rest }) => {
         flexDirection: 'column',
         height: '100%',
         cursor: 'pointer',
-        boxShadow: event.isEntry ? '1px 1px 4px 3px red;' : 3,
+        boxShadow: eventItem.isEntry ? '1px 1px 4px 3px red;' : 3,
       }}
-      onClick={onClickHandler}
       {...rest}
     >
       <CardContent>
@@ -66,17 +65,20 @@ const EventCard: React.FC<{ event: EventItem }> = ({ event, ...rest }) => {
           />
         </Box>
         <Typography align="center" color="textPrimary" gutterBottom variant="h3" fontStyle="italic">
-          {event.name}
+          {eventItem.name}
         </Typography>
         <Typography align="center" color="textPrimary" variant="body1">
-          {event.eventStatus}
+          {eventItem.eventStatus}
+        </Typography>
+        <Typography align="center" color="textPrimary" variant="h5">
+          {eventItem.matchSeries}
         </Typography>
       </CardContent>
       <Box sx={{ padding: 1 }}>
-        <TournamentCard {...event.tournament} />
+        <TournamentCard {...eventItem.tournament} />
       </Box>
       <Box sx={{ padding: 1 }}>
-        <PrizePoolCard {...event.prizePools} />
+        <PrizePoolCard {...eventItem.prizePools} />
       </Box>
       <Box sx={{ flexGrow: 1 }} />
       <Divider />
@@ -91,7 +93,7 @@ const EventCard: React.FC<{ event: EventItem }> = ({ event, ...rest }) => {
           >
             <AccessTimeIcon color="action" />
             <Typography color="textSecondary" display="inline" sx={{ pl: 1 }} variant="body2">
-              {dayjs(event.goLiveAt).format('LT on L')}
+              {dayjs(eventItem.goLiveAt).format('LT on L')}
             </Typography>
           </Grid>
           <Grid
@@ -101,7 +103,7 @@ const EventCard: React.FC<{ event: EventItem }> = ({ event, ...rest }) => {
               display: 'flex',
             }}
           >
-            {event.isEntry ? (
+            {eventItem.isEntry ? (
               <BlueButton variant="contained" onClick={onClickHandler}>
                 Add to Entries
               </BlueButton>

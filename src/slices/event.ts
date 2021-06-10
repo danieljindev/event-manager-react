@@ -41,6 +41,9 @@ const authSlice = createSlice({
       state.events = state.events.map((event) =>
         event.eventID === payload ? { ...event, isEntry: !event.isEntry } : event
       )
+      state.entries = state.entries.includes(payload)
+        ? state.entries.filter((entry) => entry !== payload)
+        : [...state.entries, payload]
     },
   },
 })
