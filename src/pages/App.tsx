@@ -14,8 +14,8 @@ import { getDayJsLocale } from 'src/utils/helpers'
 import { useDispatch, useSelector } from 'react-redux'
 import { getEvents } from 'src/selectors'
 import { fetchEvents } from 'src/slices/event'
-import { css } from '@emotion/react'
-import { HashLoader } from 'react-spinners'
+import AppContent from 'src/components/layout/AppContent'
+import Loading from 'src/components/Loading'
 
 import Home from './Home'
 import About from './About'
@@ -53,11 +53,7 @@ export default function App() {
   }, [])
 
   if (loading) {
-    return (
-      <CenterContainer>
-        <HashLoader color="#36D7B7" loading={loading} css={override} size={100} />
-      </CenterContainer>
-    )
+    return <Loading loading />
   }
 
   return (
@@ -76,20 +72,16 @@ export default function App() {
               onMobileClose={() => setMobileNavOpen(false)}
               openMobile={isMobileNavOpen}
             />
-            <DashboardLayoutWrapper>
-              <DashboardLayoutContainer>
-                <DashboardLayoutContent>
-                  <Switch>
-                    <Route exact path="/home" component={Home} />
-                    <Route exact path="/about" component={About} />
-                    <Route>
-                      <Redirect to="/home" />
-                    </Route>
-                  </Switch>
-                  <AppFooter />
-                </DashboardLayoutContent>
-              </DashboardLayoutContainer>
-            </DashboardLayoutWrapper>
+            <AppContent>
+              <Switch>
+                <Route exact path="/home" component={Home} />
+                <Route exact path="/about" component={About} />
+                <Route>
+                  <Redirect to="/home" />
+                </Route>
+              </Switch>
+              <AppFooter />
+            </AppContent>
           </DashboardLayoutRoot>
         </ThemeProvider>
       </GlobalStateProvider>
@@ -104,38 +96,3 @@ const DashboardLayoutRoot = experimentalStyled('div')(({ theme: appTheme }) => (
   overflow: 'hidden',
   width: '100%',
 }))
-
-const DashboardLayoutWrapper = experimentalStyled('div')(({ theme: appTheme }) => ({
-  display: 'flex',
-  flex: '1 1 auto',
-  overflow: 'hidden',
-  paddingTop: 64,
-  [appTheme.breakpoints.up('lg')]: {
-    paddingLeft: 256,
-  },
-}))
-
-const DashboardLayoutContainer = experimentalStyled('div')({
-  display: 'flex',
-  flex: '1 1 auto',
-  overflow: 'hidden',
-})
-
-const DashboardLayoutContent = experimentalStyled('div')({
-  flex: '1 1 auto',
-  height: '100%',
-  overflow: 'auto',
-})
-
-const CenterContainer = experimentalStyled('div')({
-  position: 'absolute',
-  left: '50%',
-  top: '50%',
-  transform: 'translate(-50%, -50%)',
-})
-
-const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-`

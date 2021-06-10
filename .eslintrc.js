@@ -91,5 +91,6 @@ module.exports = {
     ServiceWorkerRegistration: true,
     navigator: true,
     fetch: true,
+    JSX: true,
   },
 }
