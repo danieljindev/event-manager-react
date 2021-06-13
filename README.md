@@ -4,7 +4,7 @@
 
 ## Live Website
 
-- [Click Here](https://ecstatic-lovelace-2beaf0.netlify.app/)
+- <a href="https://ecstatic-lovelace-2beaf0.netlify.app/" target="_blank">Click Here</a>
 
 ## Solution
 
