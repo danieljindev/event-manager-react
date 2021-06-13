@@ -15,6 +15,8 @@
 - **Add to Entries** - Add event to the entries by clicking event button
 - **Remove from Entries** - Remove event from the entries by clicking event button
 - **Pagination** - Enables the user to select a specific page from a range of pages.
+- **Search by Event Name** - Enables the user to search event by name.
+- **Sorting** - Enables sort the events by id, name and go live time.
 - **Loading Spinners** - Enables multiple loading spinners when browser load events from API
 - **Entry Notification** - When user add and remove entries, the notification shows accordingly
 - **About Us** - Show App information
