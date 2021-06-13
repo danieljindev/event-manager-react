@@ -48,6 +48,7 @@ export interface EventState {
   eventsPerPage: number
   orderBy: EventsSortKey
   error?: string
+  term: string
 }
 
 export interface RootState {

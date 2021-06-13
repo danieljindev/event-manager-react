@@ -6,6 +6,7 @@ import { EventItem } from 'src/types'
 import { useDispatch, useSelector } from 'react-redux'
 import { getEventStates, getPageEvents } from 'src/selectors'
 import { changePage } from 'src/slices/event'
+import EventToolBar from 'src/components/event/EventToolBar'
 
 const Home = () => {
   // ===========================================================================
@@ -46,6 +47,7 @@ const Home = () => {
           pt: 3,
         }}
       >
+        <EventToolBar />
         <Container maxWidth={false}>
           <Box sx={{ pt: 3 }}>
             <Grid container spacing={3}>

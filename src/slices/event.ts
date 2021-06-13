@@ -12,6 +12,7 @@ export const initialState: EventState = {
   eventsPerPage: 10,
   orderBy: EventsSortKey.EVENTID,
   error: '',
+  term: '',
 }
 
 const authSlice = createSlice({
@@ -45,10 +46,25 @@ const authSlice = createSlice({
         ? state.entries.filter((entry) => entry !== payload)
         : [...state.entries, payload]
     },
+
+    changeTerm: (state, { payload }: PayloadAction<string>) => {
+      state.term = payload
+    },
+
+    changeOrderby: (state, { payload }: PayloadAction<EventsSortKey>) => {
+      state.orderBy = payload
+    },
   },
 })
 
-export const { fetchEvents, fetchEventsSuccess, fetchEventsError, changePage, toggleEntry } =
-  authSlice.actions
+export const {
+  fetchEvents,
+  fetchEventsSuccess,
+  fetchEventsError,
+  changePage,
+  toggleEntry,
+  changeTerm,
+  changeOrderby,
+} = authSlice.actions
 
 export default authSlice.reducer
