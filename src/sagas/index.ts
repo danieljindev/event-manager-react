@@ -4,7 +4,7 @@ import { fetchEvents, fetchEventsSuccess, fetchEventsError } from 'src/slices/ev
 import { EventItem } from 'src/types'
 
 // Get events from API
-function* fetchNotes(): any {
+function* fetchEventsSaga(): any {
   let events: EventItem[] = []
 
   try {
@@ -18,7 +18,7 @@ function* fetchNotes(): any {
 
 // If any of these functions are dispatched, invoke the appropriate saga
 function* rootSaga() {
-  yield all([takeLatest(fetchEvents.type, fetchNotes)])
+  yield all([takeLatest(fetchEvents.type, fetchEventsSaga)])
 }
 
 export default rootSaga

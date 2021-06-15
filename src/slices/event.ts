@@ -15,7 +15,7 @@ export const initialState: EventState = {
   term: '',
 }
 
-const authSlice = createSlice({
+const eventSlice = createSlice({
   name: 'event',
   initialState,
   reducers: {
@@ -65,6 +65,6 @@ export const {
   toggleEntry,
   changeTerm,
   changeOrderby,
-} = authSlice.actions
+} = eventSlice.actions
 
-export default authSlice.reducer
+export default eventSlice.reducer
