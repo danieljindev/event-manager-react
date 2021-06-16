@@ -26,16 +26,16 @@ jobs:
       # Two
       - name: Get npm cache directory path
         id: npm-cache-dir-path
-        run: echo "::set-output name=dir::$(npm cache dir)"
+        run: echo "::set-output name=dir::$(npm config get cache)"
 
       - name: Check dependencies in cache
         id: npm-cache
         uses: actions/cache@v2
         with:
           path: ${{ steps.npm-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-npm-
+            ${{ runner.os }}-node-
       # Three
       - name: Initializing dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
